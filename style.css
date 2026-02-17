@@ -1,15 +1,18 @@
+/* Base styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  background-color: #f4f4f4;
+  background-color: #00a7e9a5;
   color: #333;
+  transition: background-color 0.5s, color 0.5s;
 }
 
 header {
-  background: #333;
+  background: #cc9898;
   color: white;
   text-align: center;
   padding: 20px;
+  animation: slide-down 1s ease;
 }
 
 .tagline {
@@ -24,6 +27,11 @@ nav a {
   color: white;
   margin: 0 15px;
   text-decoration: none;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #ffcc00;
 }
 
 section {
@@ -31,11 +39,16 @@ section {
 }
 
 .card {
-  background: white;
+  background: rgb(142, 232, 185);
   padding: 15px;
   margin: 10px 0;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
 }
 
 ul {
@@ -51,6 +64,22 @@ footer {
   margin-top: 20px;
 }
 
+/* Animations */
+@keyframes slide-down {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Dark mode */
 .dark-mode {
   background-color: #222;
   color: #eee;
@@ -59,4 +88,38 @@ footer {
 .dark-mode header,
 .dark-mode footer {
   background: #111;
+}
+
+/* Color themes */
+.theme-blue {
+  background-color: #e6f0ff;
+  color: #003366;
+}
+
+.theme-blue header,
+.theme-blue footer {
+  background: #003366;
+  color: #e6f0ff;
+}
+
+.theme-green {
+  background-color: #e9f7ef;
+  color: #145a32;
+}
+
+.theme-green header,
+.theme-green footer {
+  background: #145a32;
+  color: #e9f7ef;
+}
+
+.theme-purple {
+  background-color: #f5e6ff;
+  color: #4a235a;
+}
+
+.theme-purple header,
+.theme-purple footer {
+  background: #4a235a;
+  color: #f5e6ff;
 }
