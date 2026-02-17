@@ -3,89 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: #f4f4f4;
-    }
-    header {
-      background: #333;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    nav {
-      background: #444;
-      padding: 10px;
-      text-align: center;
-    }
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-    }
-    section {
-      padding: 20px;
-    }
-    .card {
-      background: white;
-      padding: 15px;
-      margin: 10px 0;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    footer {
-      background: #333;
-      color: white;
-      text-align: center;
-      padding: 10px;
-      margin-top: 20px;
-    }
-  </style>
+  <title>Bhavesh Kumar - Portfolio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>Welcome to My Portfolio</h1>
-    <p>Showcasing my projects and skills</p>
+    <h1>Bhavesh Kumar</h1>
+    <p class="tagline">Web Developer</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
-
-  <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
 
   <section id="about">
     <h2>About Me</h2>
-    <div class="card">
-      <p>Hello! I’m learning web development and this is my first HTML project. I enjoy coding and creating simple, clean designs.</p>
-    </div>
+    <p>Hello! I’m Bhavesh Kumar, a web developer passionate about building clean, efficient, and user-friendly applications. I enjoy working with data and creating meaningful insights through analysis and visualization.</p>
   </section>
 
   <section id="projects">
     <h2>Projects</h2>
     <div class="card">
-      <h3>Project 1: Calculator</h3>
-      <p>A simple calculator built with HTML, CSS, and JavaScript.</p>
+      <h3>Uber Cab Demand Supply Analysis</h3>
+      <p>Analyzed cab demand and supply trends to identify peak hours and optimize resource allocation.</p>
     </div>
     <div class="card">
-      <h3>Project 2: To-Do List</h3>
-      <p>A task manager app to keep track of daily goals.</p>
+      <h3>VideoGame Sales Analysis</h3>
+      <p>Explored global video game sales data to uncover regional preferences and market trends.</p>
     </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>Power BI</li>
+      <li>Postgres</li>
+      <li>Excel</li>
+      <li>Python</li>
+      <li>VS Code</li>
+      <li>GitHub</li>
+    </ul>
   </section>
 
   <section id="contact">
     <h2>Contact</h2>
-    <div class="card">
-      <p>Email: myemail@example.com</p>
-      <p>GitHub: github.com/myprofile</p>
-    </div>
+    <p>Email: <a href="mailto:qwerty@gmail.com">qwerty@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/" target="_blank">github.com</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/" target="_blank">linkedin.com</a></p>
   </section>
 
   <footer>
-    <p>&copy; 2026 My Portfolio</p>
+    <p>&copy; 2026 Bhavesh Kumar</p>
+    <button onclick="toggleTheme()">Toggle Theme</button>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
