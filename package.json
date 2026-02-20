@@ -1,0 +1,25 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "This is my first Git Repository.\r <br>\r Author - Bhavesh K",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev" : "live-server --port=8080"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhaveshk-25/Demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/bhaveshk-25/Demo/issues"
+  },
+  "homepage": "https://github.com/bhaveshk-25/Demo#readme",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
