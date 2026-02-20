@@ -62,7 +62,6 @@ function addProjectCardEffects() {
         if (nextElement && nextElement.tagName === 'P') {
             card.appendChild(nextElement);
         }
-        // Background-override removed to keep default theme as requested
     });
 }
 
@@ -73,11 +72,22 @@ function enhanceContactLinks() {
     linksContainer.classList.add('contact-links');
     
     links.forEach(link => {
-        if (link.href.includes('mailto')) link.innerHTML = '📧 Email';
-        else if (link.href.includes('github')) link.innerHTML = '🔗 GitHub';
-        else if (link.href.includes('linkedin')) link.innerHTML = '💼 LinkedIn';
-        linksContainer.appendChild(link);
+        const newLink = document.createElement('a');
+        newLink.href = link.href;
+        newLink.target = "_blank"; // Ensures email/socials open in new tabs
+        newLink.rel = "noopener noreferrer";
+        
+        if (link.href.includes('mailto')) {
+            newLink.innerHTML = '📧 Email Me';
+        } else if (link.href.includes('github')) {
+            newLink.innerHTML = '🔗 GitHub';
+        } else if (link.href.includes('linkedin')) {
+            newLink.innerHTML = '💼 LinkedIn';
+        }
+        
+        linksContainer.appendChild(newLink);
     });
+    
     contactArea.innerHTML = '';
     contactArea.appendChild(linksContainer);
 }

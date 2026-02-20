@@ -68,21 +68,19 @@ h2 {
     margin: 2rem 0 1rem;
 }
 
-/* Project Cards - New Hover Logic */
 .project-card {
-    background: rgba(255, 255, 255, 0.03); /* Default theme background */
+    background: rgba(255, 255, 255, 0.03); 
     padding: 1.5rem;
     border-radius: 15px;
     margin-bottom: 1.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.05); /* Default border */
+    border: 1px solid rgba(255, 255, 255, 0.05); 
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
-    transform: scale(1.03); /* Zooming animation */
-    border: 1px solid #4ecdc4; /* Border animation */
+    transform: scale(1.03); 
+    border: 1px solid #4ecdc4; 
     box-shadow: 0 0 20px rgba(78, 205, 196, 0.2);
-    /* White hover color removed as requested */
 }
 
 ul {
@@ -134,7 +132,6 @@ li:hover {
     100% { background-position: 0% 50%; }
 }
 
-/* For JS Animations */
 .reveal {
     opacity: 0;
     transform: translateY(20px);
