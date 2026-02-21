@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bhavesh Kumar | Data Analyst</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="dark-mode">
     <div class="container">
         <header>
             <h1 id="main-title">Bhavesh Kumar</h1>
-            <p class="location-tag"><i class="fa-solid fa-location-dot"></i> Bengaluru, Karnataka</p>
+            <h3 class="location-tag"><i class="fa-solid fa-location-dot"></i> Bengaluru, Karnataka</h3>
         </header>
         
         <section class="about">
@@ -52,10 +52,22 @@
 
         <section class="contact">
             <h2>Get In Touch</h2>
-            <div id="contact-area">
-                <p><a href="mailto:bhaveshk0707@gmail.com">bhaveshk0707@gmail.com</a></p>
-                <p><a href="https://github.com/bhaveshk-25">github.com/bhaveshk-25</a></p>
-                <p><a href="https://linkedin.com/in/bhavesh-kumar-9b7a16225">linkedin.com/in/bhavesh-kumar</a></p>
+            <div class="contact-form-container">
+                <form action="#" method="POST" class="contact-form">
+                    <div class="input-row">
+                        <input type="text" placeholder="Enter Your Name" required>
+                        <input type="email" placeholder="Enter Your Email" required>
+                    </div>
+                    <textarea placeholder="Enter message" rows="5" required></textarea>
+                    
+                    <div class="form-footer">
+                        <div class="social-links-bottom">
+                            <a href="https://github.com/bhaveshk-25" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+                            <a href="https://linkedin.com/in/bhavesh-kumar-9b7a16225" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                        </div>
+                        <button type="submit" class="submit-btn">Contact Me!</button>
+                    </div>
+                </form>
             </div>
         </section>
     </div>

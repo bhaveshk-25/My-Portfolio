@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     createParticles();
     animateTyping();
     setupCards();
-    formatContact();
 });
 
 function createParticles() {
@@ -38,34 +37,4 @@ function setupCards() {
         h.parentNode.insertBefore(card, h);
         card.append(h, p);
     });
-}
-
-function formatContact() {
-    const area = document.getElementById('contact-area');
-    const links = area.querySelectorAll('a');
-    const wrap = document.createElement('div');
-    wrap.className = 'contact-links';
-    
-    links.forEach(l => {
-        const n = document.createElement('a');
-        n.href = l.href; 
-        n.target = "_blank";
-        
-        if (l.href.includes('mailto')) {
-            n.innerHTML = '<i class="fa-solid fa-envelope"></i> Email';
-            n.className = 'btn-email';
-        }
-        else if (l.href.includes('github')) {
-            n.innerHTML = '<i class="fa-brands fa-github"></i> GitHub';
-            n.className = 'btn-github';
-        }
-        else if (l.href.includes('linkedin')) {
-            n.innerHTML = '<i class="fa-brands fa-linkedin"></i> LinkedIn';
-            n.className = 'btn-linkedin';
-        }
-        wrap.appendChild(n);
-    });
-    
-    area.innerHTML = '';
-    area.appendChild(wrap);
 }

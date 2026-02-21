@@ -2,7 +2,7 @@
     /* Pure 95% Black Background */
     --bg-main: #080808; 
     --text-main: #e2e8f0;
-    --accent-color: #89d3ce;
+    --accent-color: #00d2b5; /* Slightly adjusted teal to match image */
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -48,6 +48,7 @@ h2 {
     padding-left: 15px;
     margin: 3rem 0 1.5rem;
     font-size: 1.8rem;
+    border: none; /* Removed white border to match image aesthetics */
 }
 
 .edu-item { margin-bottom: 1.5rem; padding-left: 15px; }
@@ -59,14 +60,14 @@ h2 {
     padding: 1.5rem;
     border-radius: 12px;
     margin-bottom: 1.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.15); /* Subtle border for structure */
+    border: 1px solid rgba(255, 255, 255, 0.15);
     transition: all 0.3s ease;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
     border-color: var(--accent-color);
-    background: rgba(255, 255, 255, 0.02); /* Very slight lift on hover */
+    background: rgba(255, 255, 255, 0.02);
 }
 
 ul { display: flex; flex-wrap: wrap; gap: 12px; list-style: none; }
@@ -89,46 +90,125 @@ li {
 }
 
 .skills ul li:hover {
-    transform: translateY(-5px); /* Lifts the item up */
-    border-color: #4ecdc4; /* Changes border to your accent color */
-    background: rgba(78, 205, 196, 0.1); /* Subtle tinted background */
-    box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3); /* Soft outer glow */
+    transform: translateY(-5px); 
+    border-color: #4ecdc4; 
+    background: rgba(78, 205, 196, 0.1); 
+    box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3); 
     color: #fffafa;
 }
 
-/* Official Contact Buttons */
-.contact-links { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 2rem; }
-
-.contact-links a {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none; 
-    padding: 12px 24px; 
-    border-radius: 8px;
-    font-weight: 700; 
-    transition: 0.3s;
-}
-
-.btn-email {
-    background: #ea4335;
-    color: white;
-}
-
-.btn-github {
-    background: #ffffff;
-    color: #000000; /* Black logo on white button */
-}
-
-.btn-linkedin {
-    background: #0A66C2;
-    color: #ffffff; /* Official LinkedIn Blue */
-}
-
-.contact-links a:hover { 
-    transform: translateY(-3px); 
-    filter: brightness(1.1);
-}
-
-/* Sublte stars/particles to keep it from being too flat */
+/* Subtle stars/particles */
 .particle { position: absolute; background: rgba(255,255,255,0.2); border-radius: 50%; pointer-events: none; }
+
+
+/* --- NEW CONTACT FORM STYLES --- */
+
+.contact-form-container {
+    margin-top: 1rem;
+    background: transparent;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input-row {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.input-row input {
+    flex: 1;
+    border-radius: 30px !important; /* Pill shape for single-line inputs */
+}
+
+.contact-form input,
+.contact-form textarea {
+    background: #111424; /* Dark blue-grey matching the image */
+    border: 1px solid #363b52;
+    padding: 1.2rem 1.5rem;
+    border-radius: 20px;
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--accent-color);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #636a82;
+    font-weight: 500;
+}
+
+.form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.social-links-bottom {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-links-bottom a {
+    color: #636a82; /* Subtle gray */
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    transition: color 0.3s;
+}
+
+.social-links-bottom a i {
+    font-size: 1.2rem;
+}
+
+.social-links-bottom a:hover {
+    color: var(--accent-color);
+}
+
+.submit-btn {
+    background: #6c63ff; /* Purple/Blue button matching image */
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.submit-btn:hover {
+    background: #5a52e0;
+    transform: translateY(-2px);
+}
+
+/* Responsive Form */
+@media (max-width: 650px) {
+    .input-row {
+        flex-direction: column;
+    }
+    .form-footer {
+        flex-direction: column-reverse; /* Button on top of links on mobile */
+        gap: 1.5rem;
+        align-items: center;
+    }
+}
