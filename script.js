@@ -1,105 +1,71 @@
-document.addEventListener('DOMContentLoaded', function() {
-    createFloatingParticles();
-    initScrollAnimations();
-    addTypingAnimation();
-    addProjectCardEffects();
-    enhanceContactLinks();
-    initThemeSwitcher();
+document.addEventListener('DOMContentLoaded', () => {
+    createParticles();
+    animateTyping();
+    setupCards();
+    formatContact();
 });
 
-function initThemeSwitcher() {
-    const themeBtn = document.getElementById('theme-toggle');
-    const body = document.body;
-
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    if (savedTheme === 'light') {
-        body.classList.add('light-mode');
-        themeBtn.textContent = '☀️';
-    }
-
-    themeBtn.addEventListener('click', () => {
-        body.classList.toggle('light-mode');
-        const isLight = body.classList.contains('light-mode');
-        themeBtn.textContent = isLight ? '☀️' : '🌙';
-        localStorage.setItem('theme', isLight ? 'light' : 'dark');
-    });
-}
-
-function createFloatingParticles() {
+function createParticles() {
     const container = document.querySelector('.container');
-    for (let i = 0; i < 15; i++) {
-        const particle = document.createElement('div');
-        particle.classList.add('particle');
-        const size = Math.random() * 6 + 2 + 'px';
-        particle.style.width = size;
-        particle.style.height = size;
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.top = Math.random() * 100 + '%';
-        particle.style.animationDelay = Math.random() * 5 + 's';
-        container.appendChild(particle);
+    for (let i = 0; i < 20; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        const size = Math.random() * 2 + 1 + 'px'; 
+        p.style.width = size; p.style.height = size;
+        p.style.left = Math.random() * 100 + '%';
+        p.style.top = Math.random() * 100 + '%';
+        p.style.animation = `float ${Math.random() * 10 + 10}s infinite linear`;
+        container.appendChild(p);
     }
 }
 
-function initScrollAnimations() {
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, { threshold: 0.1 });
-    
-    document.querySelectorAll('h2, .project-card, li').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'all 0.6s ease-out';
-        observer.observe(el);
-    });
-}
-
-function addTypingAnimation() {
-    const title = document.getElementById('main-title');
-    const text = title.textContent;
-    title.textContent = '';
+function animateTyping() {
+    const el = document.getElementById('main-title');
+    const txt = el.textContent; el.textContent = '';
     let i = 0;
     const type = () => {
-        if (i < text.length) {
-            title.textContent += text.charAt(i);
-            i++;
-            setTimeout(type, 100);
-        }
+        if (i < txt.length) { el.textContent += txt.charAt(i++); setTimeout(type, 100); }
     };
     setTimeout(type, 300);
 }
 
-function addProjectCardEffects() {
-    const projects = document.querySelectorAll('.projects h3');
-    projects.forEach(h3 => {
+function setupCards() {
+    const headers = document.querySelectorAll('.projects h3');
+    headers.forEach(h => {
         const card = document.createElement('div');
         card.className = 'project-card';
-        const desc = h3.nextElementSibling;
-        h3.parentNode.insertBefore(card, h3);
-        card.appendChild(h3);
-        if (desc) card.appendChild(desc);
+        const p = h.nextElementSibling;
+        h.parentNode.insertBefore(card, h);
+        card.append(h, p);
     });
 }
 
-function enhanceContactLinks() {
+function formatContact() {
     const area = document.getElementById('contact-area');
     const links = area.querySelectorAll('a');
-    const wrapper = document.createElement('div');
-    wrapper.className = 'contact-links';
+    const wrap = document.createElement('div');
+    wrap.className = 'contact-links';
     
     links.forEach(l => {
-        const btn = document.createElement('a');
-        btn.href = l.href;
-        btn.target = "_blank";
-        if (l.href.includes('mailto')) btn.innerHTML = '✉️ Compose Email';
-        else if (l.href.includes('github')) btn.innerHTML = '🐙 GitHub';
-        else btn.innerHTML = '🔗 LinkedIn';
-        wrapper.appendChild(btn);
+        const n = document.createElement('a');
+        n.href = l.href; 
+        n.target = "_blank";
+        
+        if (l.href.includes('mailto')) {
+            n.innerHTML = '<i class="fa-solid fa-envelope"></i> Email';
+            n.className = 'btn-email';
+        }
+        else if (l.href.includes('github')) {
+            n.innerHTML = '<i class="fa-brands fa-github"></i> GitHub';
+            n.className = 'btn-github';
+        }
+        else if (l.href.includes('linkedin')) {
+            n.innerHTML = '<i class="fa-brands fa-linkedin"></i> LinkedIn';
+            n.className = 'btn-linkedin';
+        }
+        wrap.appendChild(n);
     });
+    
     area.innerHTML = '';
-    area.appendChild(wrapper);
+    area.appendChild(wrap);
 }
