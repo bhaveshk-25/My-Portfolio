@@ -2,7 +2,7 @@
     /* Pure 95% Black Background */
     --bg-main: #080808; 
     --text-main: #e2e8f0;
-    --accent-color: #4ecdc4;
+    --accent-color: #89d3ce;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -72,12 +72,28 @@ h2 {
 ul { display: flex; flex-wrap: wrap; gap: 12px; list-style: none; }
 
 li {
-    background: transparent;
+    background: #2a2f40;
     padding: 8px 18px; 
     border-radius: 30px;
     border: 1px solid rgba(255, 255, 255, 0.3);
     font-weight: 500;
     font-size: 0.9rem;
+}
+
+/* Tech Stack Hover Animation */
+.skills ul li {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+}
+
+.skills ul li:hover {
+    transform: translateY(-5px); /* Lifts the item up */
+    border-color: #4ecdc4; /* Changes border to your accent color */
+    background: rgba(78, 205, 196, 0.1); /* Subtle tinted background */
+    box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3); /* Soft outer glow */
+    color: #fffafa;
 }
 
 /* Official Contact Buttons */
