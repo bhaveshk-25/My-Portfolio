@@ -172,7 +172,7 @@ li {
 }
 
 .social-links-bottom a {
-    color: #636a82; 
+    color: #f1f1f1; 
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -182,17 +182,29 @@ li {
     transition: color 0.3s;
 }
 
-.social-links-bottom a i {
-    font-size: 1.2rem;
+/* GitHub Button Background */
+.social-links-bottom a[href*="github"] {
+    background-color: #f3f4f7; /* Dark gray color */
+    color: #000000; /* White text */
+    padding: 8px 16px; /* Adds space inside so it looks like a button */
+    border-radius: 20px; /* Rounds the corners */
+}
+
+/* LinkedIn Button Background */
+.social-links-bottom a[href*="linkedin"] {
+    background-color: #0039b5; /* Official LinkedIn Blue */
+    color: #ffffff; /* White text */
+    padding: 8px 16px;
+    border-radius: 20px;
 }
 
 .social-links-bottom a:hover {
-    color: var(--accent-color);
+    transform: translateY(-2px);
 }
 
 .submit-btn {
-    background: #6c63ff; 
-    color: white;
+    background: #3bb42d; 
+    color: rgb(255, 255, 255);
     border: none;
     padding: 12px 30px;
     border-radius: 30px;
@@ -203,7 +215,6 @@ li {
 }
 
 .submit-btn:hover {
-    background: #5a52e0;
     transform: translateY(-2px);
 }
 
