@@ -1,8 +1,12 @@
+html {
+    scroll-behavior: smooth;
+}
+
 :root {
     /* Pure 95% Black Background */
     --bg-main: #080808; 
     --text-main: #e2e8f0;
-    --accent-color: #00d2b5; /* Slightly adjusted teal to match image */
+    --accent-color: #89d3ce; 
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -15,15 +19,20 @@ body {
     overflow-x: hidden;
 }
 
-/* Full Transparency for Container */
+/* Full Transparency for Container - Adjusted margin for navbar */
 .container {
     max-width: 850px;
-    margin: 4rem auto;
+    margin: 7rem auto 4rem auto; 
     padding: 2rem;
     background: transparent;
     border: none;
     position: relative;
     z-index: 1;
+}
+
+/* Add padding to sections so anchor links clear the navbar */
+section, header {
+    scroll-margin-top: 90px;
 }
 
 .location-tag {
@@ -48,7 +57,6 @@ h2 {
     padding-left: 15px;
     margin: 3rem 0 1.5rem;
     font-size: 1.8rem;
-    border: none; /* Removed white border to match image aesthetics */
 }
 
 .edu-item { margin-bottom: 1.5rem; padding-left: 15px; }
@@ -60,14 +68,14 @@ h2 {
     padding: 1.5rem;
     border-radius: 12px;
     margin-bottom: 1.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.15); 
     transition: all 0.3s ease;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
     border-color: var(--accent-color);
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(255, 255, 255, 0.02); 
 }
 
 ul { display: flex; flex-wrap: wrap; gap: 12px; list-style: none; }
@@ -100,9 +108,7 @@ li {
 /* Subtle stars/particles */
 .particle { position: absolute; background: rgba(255,255,255,0.2); border-radius: 50%; pointer-events: none; }
 
-
-/* --- NEW CONTACT FORM STYLES --- */
-
+/* Contact Form Styles */
 .contact-form-container {
     margin-top: 1rem;
     background: transparent;
@@ -121,12 +127,12 @@ li {
 
 .input-row input {
     flex: 1;
-    border-radius: 30px !important; /* Pill shape for single-line inputs */
+    border-radius: 30px !important; 
 }
 
 .contact-form input,
 .contact-form textarea {
-    background: #111424; /* Dark blue-grey matching the image */
+    background: #111424; 
     border: 1px solid #363b52;
     padding: 1.2rem 1.5rem;
     border-radius: 20px;
@@ -166,7 +172,7 @@ li {
 }
 
 .social-links-bottom a {
-    color: #636a82; /* Subtle gray */
+    color: #636a82; 
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -185,7 +191,7 @@ li {
 }
 
 .submit-btn {
-    background: #6c63ff; /* Purple/Blue button matching image */
+    background: #6c63ff; 
     color: white;
     border: none;
     padding: 12px 30px;
@@ -201,14 +207,88 @@ li {
     transform: translateY(-2px);
 }
 
-/* Responsive Form */
 @media (max-width: 650px) {
     .input-row {
         flex-direction: column;
     }
     .form-footer {
-        flex-direction: column-reverse; /* Button on top of links on mobile */
+        flex-direction: column-reverse; 
         gap: 1.5rem;
         align-items: center;
+    }
+}
+
+/* --- NAVBAR STYLES --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+    background-color: #0b0f19; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.logo-circle {
+    width: 45px;
+    height: 45px;
+    background: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: #000;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #94a3b8; 
+    font-weight: 500;
+    font-size: 1.05rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+}
+
+.nav-actions button {
+    background: #1e293b; 
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    color: #f8fafc;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.nav-actions button:hover {
+    background: #334155;
+    transform: scale(1.05);
+}
+
+@media (max-width: 650px) {
+    .nav-links {
+        display: none; 
     }
 }
