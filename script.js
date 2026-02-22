@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     createParticles();
     animateTyping();
     setupCards();
+    setupContactForm();
+    setupThemeToggle(); // Activates the theme button!
 });
 
 function createParticles() {
@@ -36,5 +38,69 @@ function setupCards() {
         const p = h.nextElementSibling;
         h.parentNode.insertBefore(card, h);
         card.append(h, p);
+    });
+}
+
+function setupContactForm() {
+    const form = document.querySelector('.contact-form');
+    
+    if (form) {
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault(); 
+            
+            const timeInput = document.getElementById('local-time');
+            if (timeInput) {
+                timeInput.value = new Date().toLocaleString(); 
+            }
+
+            const data = new FormData(form);
+            const button = form.querySelector('.submit-btn');
+            const originalText = button.textContent;
+            
+            button.textContent = 'Sending...';
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    alert("Message Sent! Thank you for getting in touch.");
+                    form.reset();
+                } else {
+                    alert("Oops! There was a problem submitting your form.");
+                }
+            } catch (error) {
+                alert("Oops! There was a problem submitting your form.");
+            } finally {
+                button.textContent = originalText;
+            }
+        });
+    }
+}
+
+// THE NEW THEME TOGGLE LOGIC
+function setupThemeToggle() {
+    const themeBtn = document.getElementById('theme-btn');
+    if (!themeBtn) return;
+    
+    const icon = themeBtn.querySelector('i');
+
+    themeBtn.addEventListener('click', () => {
+        // Toggles the light-mode class on the body
+        document.body.classList.toggle('light-mode');
+        
+        // Swaps the sun/moon icon
+        if (document.body.classList.contains('light-mode')) {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+        } else {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
     });
 }

@@ -28,9 +28,14 @@
     </nav>
 
     <div class="container" id="home">
-        <header>
-            <h1 id="main-title">Bhavesh Kumar</h1>
-            <h3 class="location-tag"><i class="fa-solid fa-location-dot"></i> Bengaluru, Karnataka</h3>
+        <header id="home" class="hero-header">
+            <div class="hero-text">
+                <h1 id="main-title">Bhavesh Kumar</h1>
+                <h3 class="location-tag"><i class="fa-solid fa-location-dot"></i> Bengaluru, Karnataka</h3>
+            </div>
+            <div class="hero-image">
+                <img src="Photo2.png" alt="Bhavesh Kumar" class="profile-pic">
+            </div>
         </header>
         
         <section id="about" class="about">
@@ -76,6 +81,7 @@
                         <input type="text"  name="name" placeholder="Enter Your Name" required>
                         <input type="email" name="email" placeholder="Enter Your Email" required>
                     </div>
+                    <input type="hidden" name="Local Time" id="local-time">
                     <textarea name="message" placeholder="Enter message" rows="5" required></textarea>
                     
                     <div class="form-footer">
