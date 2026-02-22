@@ -45,8 +45,8 @@ html {
     height: 160px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid var(--accent-color);
-    box-shadow: 0 0 20px rgba(137, 211, 206, 0.15); /* Soft glow */
+    border: none; /* Accent color border */
+    box-shadow: 0 0 15px rgba(123, 180, 166, 0.734); /* Soft glow */
     transition: transform 0.3s ease;
 }
 
