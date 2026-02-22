@@ -92,7 +92,7 @@ body {
 
 /* Full Transparency for Container - Adjusted margin for navbar */
 .container {
-    max-width: 850px;
+    max-width: 1000px;
     margin: 7rem auto 4rem auto; 
     padding: 2rem;
     background: transparent;
@@ -309,13 +309,21 @@ li {
     left: 0;
     width: 100%;
     height: 75px;
-    background-color: #0b0f19; 
+    background-color: #070d29c1; 
+
+    /* 2. The magical blur effect */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); /* Adds support for Safari browsers */
+    
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* This keeps them spread out properly */
     align-items: center;
-    padding: 0 5%;
+    
+    /* Change the 12% to push the buttons further in or out */
+    padding: 0 12%; 
+    
     z-index: 1000;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: none;
 }
 
 .logo-circle {
@@ -329,6 +337,7 @@ li {
     font-weight: 800;
     font-size: 1.5rem;
     color: #000;
+    margin-left: 100px;
 }
 
 .nav-links {
@@ -364,6 +373,7 @@ li {
     align-items: center;
     font-size: 1.2rem;
     transition: background 0.3s, transform 0.2s;
+    margin-right: 100px;
 }
 
 .nav-actions button:hover {
@@ -383,7 +393,7 @@ body.light-mode {
     --accent-color: #0d9488; 
     
     /* NEW: Light Mode Animated Gradient */
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #ffffff 50%, #ffffff 100%);
     background-size: 200% 200%;
     animation: gradientShift 15s ease infinite;
 }
@@ -403,7 +413,10 @@ body.light-mode li {
 body.light-mode .particle { background: rgba(0, 0, 0, 0.1); }
 
 /* Light Mode Navbar */
-body.light-mode .navbar { background-color: #ffffff; }
+body.light-mode .navbar { background-color: #ffffffbd; /* The blur effect */
+                          backdrop-filter: blur(12px);
+                          -webkit-backdrop-filter: blur(12px);
+                        }
 body.light-mode .nav-links a { color: #475569; }
 body.light-mode .nav-links a:hover { color: #0f172a; }
 body.light-mode .nav-actions button { background: #e2e8f0; color: #0f172a; }
@@ -436,4 +449,37 @@ body.light-mode .contact-form textarea {
         transform: translateY(-250px) translateX(30px); 
         opacity: 0; 
     }
+}
+
+/* --- INTRO BLOCK STYLES --- */
+.intro-block {
+    margin: 2rem 0;
+}
+
+.intro-block p {
+    color: #ffffff; 
+    font-size: 1.5rem; 
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* --- INTRO BLOCK STYLES --- */
+.intro-block h2 {
+    color: #ffffff; /* Makes the main sentence white */
+    border-left: none; /* Removes that default white line */
+    padding-left: 0; /* Removes the spacing from the line */
+    font-size: 1.8rem; 
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 2rem 0;
+}
+
+.highlight-name {
+    color: var(--accent-color) !important; /* Forces ONLY your name to be the accent color */
+}
+
+/* Light Mode Fix */
+body.light-mode .intro-block h2 {
+    color: #0f172a; /* Makes the main text dark in light mode */
 }

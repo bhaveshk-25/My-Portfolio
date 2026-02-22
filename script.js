@@ -3,11 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
     animateTyping();
     setupCards();
     setupContactForm();
-    setupThemeToggle(); // Activates the theme button!
+    setupThemeToggle(); // This line tells the button to wake up and listen for clicks!
 });
 
 function createParticles() {
     const container = document.querySelector('.container');
+    if (!container) return;
     for (let i = 0; i < 20; i++) {
         const p = document.createElement('div');
         p.className = 'particle';
@@ -22,6 +23,7 @@ function createParticles() {
 
 function animateTyping() {
     const el = document.getElementById('main-title');
+    if (!el) return;
     const txt = el.textContent; el.textContent = '';
     let i = 0;
     const type = () => {
@@ -83,10 +85,10 @@ function setupContactForm() {
     }
 }
 
-// THE NEW THEME TOGGLE LOGIC
+// The engine for your Theme Button
 function setupThemeToggle() {
     const themeBtn = document.getElementById('theme-btn');
-    if (!themeBtn) return;
+    if (!themeBtn) return; // Failsafes if the button is missing from HTML
     
     const icon = themeBtn.querySelector('i');
 
